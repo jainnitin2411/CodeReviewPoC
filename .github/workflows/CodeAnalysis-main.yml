@@ -1,0 +1,22 @@
+name: Run .NET Code Analysis WF
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Get Your Code
+        uses: actions/checkout@v2
+      - name: Run NuGet restore
+        run: dotnet restore .\dotnet-core-hello-world.sln
+      - name: Run .NET Code Analysis
+        uses: dotnet/code-analysis@v1
+        id: code-analysis
+        with:
+          solution: dotnet-core-hello-world.sln
+          build-breaking: true
+          all-categories: all
+      - name: Say Completed
+        run: 'echo "Code Analysis Completed!"'
