@@ -9,10 +9,14 @@ jobs:
     steps:
       - name: Get Your Code
         uses: actions/checkout@v2
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4.0.1        
       - name: Run NuGet restore
         run: dotnet restore .\dotnet-core-hello-world.sln
-      - name: Run .NET Code Analysis
-        uses: dotnet/code-analysis@v1
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3.1        
+      - name: MegaLinter
+        uses: oxsecurity/megalinter@v7.13.0
         id: code-analysis
         with:
           solution: dotnet-core-hello-world.sln
