@@ -15,7 +15,10 @@ jobs:
           dotnet-version: '3.1.x'
       - name: Run NuGet restore
         run: dotnet restore dotnet-core-hello-world.csproj
-      - run: dotnet build dotnet-core-hello-world.csproj
+      - name: Build the project
+        run: dotnet build dotnet-core-hello-world.csproj
+      - name: AppInspector
+        uses: microsoft/ApplicationInspector-Action@v1.0.1
       - name: MegaLinter
         uses: oxsecurity/megalinter@v7.13.0
       - name: Say Completed
