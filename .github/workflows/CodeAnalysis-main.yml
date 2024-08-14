@@ -5,16 +5,18 @@ name: Run .NET Code Analysis WF
       - main
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Get Your Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v4.0.1        
+        uses: actions/setup-dotnet@v4.0.1
+        with:
+          dotnet-version: '3.1.x'
       - name: Run NuGet restore
         run: dotnet restore .\dotnet-core-hello-world.sln
+      - run: dotnet build .\dotnet-core-hello-world.sln
       - name: MegaLinter
         uses: oxsecurity/megalinter@v7.13.0
-        id: code-analysis
       - name: Say Completed
         run: 'echo "Code Analysis Completed!"'
