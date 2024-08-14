@@ -14,7 +14,7 @@ jobs:
         with:
           dotnet-version: '3.1.x'
       - name: Run NuGet restore
-        run: dotnet restore .\dotnet-core-hello-world.sln
+        run: dotnet restore .\dotnet-core-hello-world.csproj
       - run: dotnet build .\dotnet-core-hello-world.csproj
       - name: MegaLinter
         uses: oxsecurity/megalinter@v7.13.0
