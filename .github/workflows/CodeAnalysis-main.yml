@@ -16,9 +16,5 @@ jobs:
       - name: MegaLinter
         uses: oxsecurity/megalinter@v7.13.0
         id: code-analysis
-        with:
-          solution: dotnet-core-hello-world.sln
-          build-breaking: true
-          all-categories: all
       - name: Say Completed
         run: 'echo "Code Analysis Completed!"'
