@@ -28,4 +28,4 @@ jobs:
     - name: Run DotNet Analyzer
       run: |
         pwd
-        ls
+        dotnet analyze .\dotnet-core-hello-world.csproj
