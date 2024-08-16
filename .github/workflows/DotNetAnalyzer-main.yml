@@ -1,0 +1,26 @@
+name: DotNet Code Review Workflow
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test
+    - name: Code Analysis
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0
+      run: dotnet analyze
