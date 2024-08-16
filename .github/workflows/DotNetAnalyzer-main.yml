@@ -24,6 +24,6 @@ jobs:
     - name: Code Analysis
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0
+        dotnet-version: 6.0.*
     - name: Run DotNet Analyzer
       run: dotnet analyze
