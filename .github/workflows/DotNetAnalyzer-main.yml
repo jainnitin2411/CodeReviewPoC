@@ -32,4 +32,4 @@ jobs:
     - name: Run dotnet format
       uses: requizm/dotnet-format@0.2.0
       with:
-        only-changed-files: "false"
+        only-changed-files: "true"
