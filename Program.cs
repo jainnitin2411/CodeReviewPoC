@@ -6,6 +6,11 @@ namespace dotnet_core_hello_world
     {
         static void Main(string[] args)
         {
+            LogMsg();
+        }
+
+        private static void LogMsg()
+        {
             Console.WriteLine("Hello Nitin!");
         }
     }
