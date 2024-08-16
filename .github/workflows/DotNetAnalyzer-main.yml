@@ -26,4 +26,6 @@ jobs:
       with:
         dotnet-version: 3.1.*
     - name: Run DotNet Analyzer
-      run: dotnet analyze
+      run: |
+        cd E:\CodeReviewPoC\dotnet-core-hello-world.csproj
+        dotnet analyze
