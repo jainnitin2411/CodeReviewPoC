@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Set up .NET
@@ -25,7 +25,9 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 3.1.*
-    - name: Run DotNet Analyzer
-      run: |
-        pwd
-        dotnet analyze .\dotnet-core-hello-world.csproj
+    - name: Add dotnet-format problem matcher
+      uses: xt0rted/dotnet-format-problem-matcher@v1
+    - name: Restore dotnet tools
+      uses: xt0rted/dotnet-tool-restore@v1
+    - name: Run dotnet format
+      uses: requizm/dotnet-format@0.2.0
