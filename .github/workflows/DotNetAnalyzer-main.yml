@@ -1,6 +1,8 @@
 name: DotNet Code Review Workflow
 
 on:
+  push:
+    branches: [main]  
   pull_request:
     branches: [main]
 
@@ -12,7 +14,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0
+        dotnet-version: 3.1.*
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -22,6 +24,12 @@ jobs:
     - name: Code Analysis
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0
-    - name: Run DotNet Analyzer
-      run: dotnet analyze
+        dotnet-version: 3.1.*
+    - name: Add dotnet-format problem matcher
+      uses: xt0rted/dotnet-format-problem-matcher@v1
+    - name: Restore dotnet tools
+      uses: xt0rted/dotnet-tool-restore@v1
+    - name: Run dotnet format
+      uses: requizm/dotnet-format@0.2.0
+      with:
+        only-changed-files: "true"
