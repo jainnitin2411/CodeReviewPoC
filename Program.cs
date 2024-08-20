@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace dotnet_core_hello_world
 {
@@ -9,7 +10,7 @@ namespace dotnet_core_hello_world
             LogMsg();
         }
 
-        private static void LogMsg()
+        private async static Task LogMsg()
         {
             Console.WriteLine("Hello Nitin!");
         }
