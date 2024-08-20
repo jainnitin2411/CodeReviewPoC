@@ -12,7 +12,7 @@ namespace dotnet_core_hello_world
 
         private async static Task LogMsg()
         {
-            Console.WriteLine("Hello Nitin...!");
+            Console.WriteLine("Hello Nitin..!");
         }
     }
 }
