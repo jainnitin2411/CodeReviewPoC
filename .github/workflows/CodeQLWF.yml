@@ -39,5 +39,3 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{ matrix.language }}"
-        # Limit analysis to the code changes in the push or PR
-        ref: refs/remotes/pull/${{ github.event.pull_request.number }}/merge
