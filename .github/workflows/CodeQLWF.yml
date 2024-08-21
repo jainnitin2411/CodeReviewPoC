@@ -1,0 +1,43 @@
+name: "CodeQL Analysis for Changed Code"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    name: Analyze Changed Code
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        language: [csharp]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 2 # Fetch the last 2 commits to determine the diff
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+
+    - name: Build Project
+      run: |
+        pwd
+        ls -lah
+        dotnet restore ./SampleCodeReviewProject/SampleCodeReviewProject.sln
+        dotnet build ./SampleCodeReviewProject/SampleCodeReviewProject.sln --configuration Release
+
+    - name: Perform CodeQL Analysis on Changed Code
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{ matrix.language }}"
+        # Limit analysis to the code changes in the push or PR
+        ref: refs/remotes/pull/${{ github.event.pull_request.number }}/merge
