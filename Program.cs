@@ -8,6 +8,14 @@ namespace dotnet_core_hello_world
         static void Main(string[] args)
         {
             LogMsg();
+            string username = "admin"; // Hardcoded username
+            string password = "password123"; // Hardcoded password
+
+            if (username == "admin" && password == "password123")
+            {
+                Console.WriteLine("Welcome Admin!");
+            }
+
         }
 
         private async static Task LogMsg()
