@@ -68,7 +68,7 @@ namespace dotnet_core_hello_world
 
         {
 
-            Console.WriteLine("Hello Nitin Jain. How are you? !!!!!!Anirban!!!!");
+            Console.WriteLine("Hello Nitin Jain. How are you? ");
 
         }
 
