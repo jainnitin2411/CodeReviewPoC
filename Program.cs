@@ -26,7 +26,7 @@ namespace dotnet_core_hello_world
 
             // Vulnerable SQL Query
 
-            string connectionString = "your_connection_string_here No Ani";
+            string connectionString = "your_connection_string_here No anirban";
 
             string query = $"SELECT * FROM Users WHERE Username = '{username}' AND Password = '{password}'";
 
