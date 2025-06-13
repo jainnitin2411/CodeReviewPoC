@@ -13,7 +13,7 @@ namespace dotnet_core_hello_world
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Enter your username::");
+            Console.WriteLine("Enter your username::::");
 
             string username = Console.ReadLine();
 
